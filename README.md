@@ -17,27 +17,31 @@
 
 # Начало использования
 
-Необходимо установить зависимости composer. 
+* Необходимо установить зависимости composer. 
 
 ```
 cd /var/www/homeAir/include
 composer install
 ```
 
-Отредактировать константы DIR, DIR_INC, CONFILE, URL в файле include/config.php
+* Отредактировать константы DIR, DIR_INC, CONFILE, URL в файле include/config.php
 
-Изменить значения IP и Port в соответствии со своими значениями в файле install.php
+* Изменить значения IP и Port в соответствии со своими значениями в файле install.php
 Запустить файл install.php
 
 ```
 php /var/www/homeAir/install.php
 ```
 
-Удалить файл install.php
+* Удалить файл install.php
 
-К папке include желательно ограничить доступ.
+* К папке include желательно ограничить доступ.
 
-Для работы расписания необходимо добавить daemon.php в Cron
+* Для работы расписания необходимо добавить daemon.php в Cron
+
+```
+*/3 * * * *  php /var/www/air/include/daemon.php > /dev/null 2>&1
+```
 
 # Скриншот
 
