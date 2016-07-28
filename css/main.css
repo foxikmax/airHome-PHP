@@ -1,0 +1,67 @@
+.cursor{
+    cursor: pointer;
+}
+
+.airPlus{
+    font-size: 60px;
+    top: -12px;
+}
+.temp{
+    font-size: 120px;
+}
+
+.statusHight{
+    font-size: 20px;
+    width: 100%;
+    height: 30px;
+    margin-top: -25px;
+}
+
+.status, .timer, .speed, .curtain {
+    display: inline-block;
+    width: 100%;
+    vertical-align: bottom;
+}
+
+.status{
+    text-align: left;
+    width: 49%; 
+}
+
+.timer{
+    text-align: right;
+    width: 49%; 
+}
+
+.statusLow{
+    font-size: 20px;
+    width: 100%;
+    height: 30px;
+    margin-top: 15px;
+    margin-bottom: -25px;
+}
+
+.speed{
+    text-align: left;
+    width: 49%; 
+}
+
+.curtain{
+    text-align: right;
+    width: 49%; 
+}
+
+.text-muted{
+    font-size: 40px;
+}
+
+#scheduleModal .activeZone{
+    min-height: 19px;
+    cursor: pointer;
+    
+}
+
+#scheduleModal table th{
+    text-align: center;
+    padding: 6px;
+}

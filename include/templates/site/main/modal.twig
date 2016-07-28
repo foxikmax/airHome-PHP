@@ -1,0 +1,120 @@
+<div class="modal fade" id="scheduleModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title">Расписание</h4>
+            </div>
+            <div class="modal-body">
+                <table class='table table-bordered'>
+
+                        <tr class='info'>
+                            <th>00:00</th>
+                            <th>01:00</th>
+                            <th>02:00</th>
+                            <th>03:00</th>
+                            <th>04:00</th>
+                            <th>05:00</th>
+                        </tr>
+
+                        <tr>
+                            <td id='time00' class='{% if sheduleTime0 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time01' class='{% if sheduleTime1 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time02' class='{% if sheduleTime2 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time03' class='{% if sheduleTime3 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time04' class='{% if sheduleTime4 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time05' class='{% if sheduleTime5 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                        </tr>
+
+                        
+                        <tr class='info'>
+                            <th>06:00</th>
+                            <th>07:00</th>
+                            <th>08:00</th>
+                            <th>09:00</th>
+                            <th>10:00</th>
+                            <th>11:00</th>
+                        </tr>
+                        <tr>
+                            <td id='time06' class='{% if sheduleTime6 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time07' class='{% if sheduleTime7 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time08' class='{% if sheduleTime8 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time09' class='{% if sheduleTime9 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time10' class='{% if sheduleTime10 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time11' class='{% if sheduleTime11 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                        </tr>
+                        
+                        
+                        <tr class='info'>
+                            <th>12:00</th>
+                            <th>13:00</th>
+                            <th>14:00</th>
+                            <th>15:00</th>
+                            <th>16:00</th>
+                            <th>17:00</th>
+                        </tr>
+
+                        <tr>
+                            <td id='time12' class='{% if sheduleTime12 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time13' class='{% if sheduleTime13 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time14' class='{% if sheduleTime14 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time15' class='{% if sheduleTime15 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time16' class='{% if sheduleTime16 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time17' class='{% if sheduleTime17 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                        </tr>
+
+                    
+                        <tr class='info'>
+                            <th>18:00</th>
+                            <th>19:00</th>
+                            <th>20:00</th>
+                            <th>21:00</th>
+                            <th>22:00</th>
+                            <th>23:00</th>
+                        </tr>
+
+                        <tr>
+                            <td id='time18' class='{% if sheduleTime18 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time19' class='{% if sheduleTime19 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time20' class='{% if sheduleTime20 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time21' class='{% if sheduleTime21 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time22' class='{% if sheduleTime22 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                            <td id='time23' class='{% if sheduleTime23 == '1' %}success{% else %}danger{% endif %}'><div class='activeZone'></div></td>
+                        </tr>
+                        
+                </table>
+
+                <form>
+                    <div class="form-group">
+                        <label for="scheduleSpeed">Скорость при запуске:</label>
+                        <select class="form-control" id="scheduleSpeed">
+                            <option value='speedSlow' {% if scheduleSpeed == 'speedSlow' %}selected{% endif %}>Медленная</option>
+                            <option value='speedAverage' {% if scheduleSpeed == 'speedAverage' %}selected{% endif %}>Средняя</option>
+                            <option value='speedFast' {% if scheduleSpeed == 'speedFast' %}selected{% endif %}>Быстрая</option>
+                        </select>
+                        
+                    </div>
+                    <div class="form-group">
+                        <label for="scheduleTemp">Температура при запуске:</label>
+                        <select class="form-control" id="scheduleTemp">
+                            <option value='temp25' {% if scheduleTemp == 'temp25' %}selected{% endif %}>+25</option>
+                            <option value='temp24' {% if scheduleTemp == 'temp24' %}selected{% endif %}>+24</option>
+                            <option value='temp23' {% if scheduleTemp == 'temp23' %}selected{% endif %}>+23</option>
+                            <option value='temp22' {% if scheduleTemp == 'temp22' %}selected{% endif %}>+22</option>
+                            <option value='temp21' {% if scheduleTemp == 'temp21' %}selected{% endif %}>+21</option>
+                            <option value='temp20' {% if scheduleTemp == 'temp20' %}selected{% endif %}>+20</option>
+                            <option value='temp19' {% if scheduleTemp == 'temp19' %}selected{% endif %}>+19</option>
+                            <option value='temp18' {% if scheduleTemp == 'temp18' %}selected{% endif %}>+18</option>
+                        </select>
+                    </div>
+                </form>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id='btnSave' class="btn btn-primary">Сохранить</button>
+                <button type="button" id='scheduleAllOff' class="btn btn-danger">Отключить</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>

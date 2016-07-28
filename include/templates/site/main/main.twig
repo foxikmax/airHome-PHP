@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+    
+    {% include 'header.twig' %}
+
+    <body>
+        <div class="container">
+            <div class="header clearfix">
+                <nav>
+                    <ul class="nav nav-pills pull-right">
+                        <li class="active"><a href="#schedule" data-toggle="modal" data-target="#scheduleModal">Расписание</a></li>
+                    </ul>
+                </nav>
+                
+                <h3 class="text-muted">AIR</h3>
+            </div>
+
+            <div class="jumbotron">
+                <div class="statusHight">
+                    <div class="status">
+                        {% if status == "Включен" %}
+                            <span class="label label-success"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class='textStatus'>Включен</span></span>
+                        {% else %}
+                            <span class="label label-danger"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> <span class='textStatus'>Выключен</span></span>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="curtain">
+                        {% if curtain == 'on' %}
+                            <span class="label label-danger"><span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> Шторка: <span class='textСurtain'>вкл</span></span>
+                        {% else %}
+                            <span class="label label-success"><span class="glyphicon glyphicon-retweet" aria-hidden="true"></span> Шторка: <span class='textСurtain'>выкл</span></span>
+                        {% endif %}
+                    </div>
+                    
+                    
+                </div>
+                    
+                <div><span class="glyphicon glyphicon-plus airPlus" aria-hidden="true"></span> <span class='temp'><span class='textTemp'>{{temp}}</span>&deg</span></div>
+
+                <div class="statusLow">
+                    <div class="speed">
+                        <span class="label label-info"><span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> Speed: <span class='textSpeed'>{% if speed == "speedSlow" %}Медленная{% elseif speed == "speedAverage" %}Средняя{% elseif speed == "speedFast" %}Быстрая{% endif %}</span></span>
+                    </div>
+                    
+                    <div class="timer">
+                        {% if timer != 0 %}
+                            <span class="label label-danger"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <span class='textTimer'>Таймер: On ({{timer}}h)</span></span>
+                        {% else %}
+                            <span class="label label-success"><span class="glyphicon glyphicon-time" aria-hidden="true"></span> <span class='textTimer'>Таймер: Off</span></span>
+                        {% endif %}
+                    </div>
+                </div>
+              
+            </div>
+                    
+            <div id='sheduleAlert' class="alert alert-info {% if sheduleStatus == 0 %}hide{% endif %}" role="alert">
+                <strong>Внимание!</strong> Включено расписание
+            </div>       
+                
+            <div class="row marketing">
+                <div class="col-lg-6">
+                    <p><button type="button" id="btnPowerOn" class="btn btn-success btn-lg btn-block" onClick="command('poweron')"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Включить</button></p>
+                    <p><button type="button" class="btn btn-danger btn-lg btn-block" onClick="command('poweroff')"><span class="glyphicon glyphicon-off" aria-hidden="true"></span> Выключить</button></p>
+                    <p><button type="button" class="btn btn-primary btn-lg btn-block" onClick="command('quickCooling')">Быстрое охлаждение</button></p>
+                    <p><button type="button" class="btn btn-primary btn-lg btn-block" onClick="command('curtainControlOn')">Вращение шторкой: включить</button></p>
+                    <p><button type="button" class="btn btn-primary btn-lg btn-block" onClick="command('curtainControlOff')">Вращение шторкой: выключить</button></p>
+                    <p><button type="button" class="btn btn-primary btn-lg btn-block" onClick="command('taimer1h')">Таймер 1 ч.</button></p>
+                    <p><button type="button" class="btn btn-primary btn-lg btn-block" onClick="command('taimer2h')">Таймер 2 ч.</button></p>
+                    <p><button type="button" class="btn btn-primary btn-lg btn-block" onClick="command('taimer3h')">Таймер 3 ч.</button></p>
+                    <p><button type="button" class="btn btn-primary btn-lg btn-block" onClick="command('taimer4h')">Таймер 4 ч.</button></p>
+                    <p><button type="button" class="btn btn-primary btn-lg btn-block" onClick="command('taimer5h')">Таймер 5 ч.</button></p>
+                    <p><button type="button" class="btn btn-primary btn-lg btn-block" onClick="command('taimerOff')">Выключить таймер</button></p>
+                </div>
+
+                <div class="col-lg-6">
+                    <p><button type="button" class="btn btn-warning btn-lg btn-block" onClick="command('speedSlow')">Скорость: медленно</button></p>
+                    <p><button type="button" class="btn btn-warning btn-lg btn-block" onClick="command('speedAverage')">Скорость: средне</button></p>
+                    <p><button type="button" class="btn btn-warning btn-lg btn-block" onClick="command('speedFast')">Скорость: быстро</button></p>
+                    <p><button type="button" class="btn btn-info btn-lg btn-block" onClick="command('temp18')">Температура +18</button></p>
+                    <p><button type="button" class="btn btn-info btn-lg btn-block" onClick="command('temp19')">Температура +19</button></p>
+                    <p><button type="button" class="btn btn-info btn-lg btn-block" onClick="command('temp20')">Температура +20</button></p>
+                    <p><button type="button" class="btn btn-info btn-lg btn-block" onClick="command('temp21')">Температура +21</button></p>
+                    <p><button type="button" class="btn btn-info btn-lg btn-block" onClick="command('temp22')">Температура +22</button></p>
+                    <p><button type="button" class="btn btn-info btn-lg btn-block" onClick="command('temp23')">Температура +23</button></p>
+                    <p><button type="button" class="btn btn-info btn-lg btn-block" onClick="command('temp24')">Температура +24</button></p>
+                    <p><button type="button" class="btn btn-info btn-lg btn-block" onClick="command('temp25')">Температура +25</button></p>
+                </div>
+            </div>
+        </div> <!-- /container -->
+        
+        {% include 'modal.twig' %}
+        
+  </body>
+</html>
