@@ -1,4 +1,4 @@
-# WakeOnLan-PHP
+# airHome-PHP
 
 # Описание
 
