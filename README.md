@@ -1,4 +1,4 @@
-# AirHome
+# AirHome Broadlink RM Mini 3
 
 # Описание
 
